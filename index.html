@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Catálogo de Ventas</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+
+    <header>
+        <h1>EMOTIONS GDL</h1>
+    </header>
+
+    <section class="hero-aesthetic">
+    <div class="hero-overlay">
+        <div class="hero-contenido"></div>
+        <h2>Creamos Momentos Inolvidables</h2>
+        <p>Renta de mobiliario para tus eventos más especiales.</p>
+    </div>
+</section>
+
+    <main class="contenedor">
+
+        <section class="productos">
+            
+            <div class="tarjeta-producto">
+                <img src="img/carrito.jpg" alt="Carro de Bebidas">
+                <h3>Carro de Bebidas</h3>
+                <p>$1500</p>
+                <button onclick="agregarProducto('Carro de bebidas', 1500)">Agregar al Carrito</button>
+            </div>
+
+            <!-- TARJETA 2: La Pista -->
+    <div class="tarjeta-producto">
+        <img src="img/pistaBaile.webp" alt="Pista de Baile">
+        <h3>Pista de Baile</h3>
+        <p>$2500</p>
+        <button onclick="agregarProducto('Pista de Baile', 2500)">Agregar al Carrito</button>
+    </div>
+
+    <!-- TARJETA 3: La cabinaa -->
+    <div class="tarjeta-producto">
+        <img src="img/cabina.png" alt="Cabina de Fotos">
+        <h3>Cabina de foto</h3>
+        <p>$3500</p>
+        <button onclick="agregarProducto('Cabina de Fotos', 3500)">Agregar al Carrito</button>
+    </div>
+
+    <!-- TARJETA 4: Foto 360 -->
+    <div class="tarjeta-producto">
+        <img src="img/360.webp" alt="Cabina de Fotos 360">
+        <h3>Cabina de fotos 360</h3>
+        <p>$2900</p>
+        <button onclick="agregarProducto('Cabina de Fotos 360', 2900)">Agregar al Carrito</button>
+    </div>
+        </section>
+
+        <aside class="carrito-seccion">
+            <h2>Tu Carrito</h2>
+            <div id="carrito">
+            </div>
+            <h3 id="total">Total: $0</h3>
+
+            <div class="formulario-pago">
+                <input type="text" id="cliente" placeholder="Nombre del cliente">
+                <input type="text" id="direccion" placeholder="Dirección de envío">
+                <button onclick="validarCompra()">Finalizar Compra</button>
+            </div>
+        </aside>
+    </main>
+    
+<footer class="footer-cuadro">
+    <div class="footer-contenido">
+        <div class="footer-info">
+            <h4>EMOTIONS GDL</h4>
+            <p>Transformando tus ideas en realidades decorativas.</p>
+        </div>
+        <div class="footer-separador"></div>
+        <div class="footer-redes">
+            <a href="#">Instagram</a>
+            <a href="#">WhatsApp</a>
+            <a href="#">Catálogo PDF</a>
+        </div>
+        <p class="copyright">© 2024 Todos los derechos reservados.</p>
+    </div>
+</footer>
+    <script src="script.js"></script>
+</body>
+</html>
