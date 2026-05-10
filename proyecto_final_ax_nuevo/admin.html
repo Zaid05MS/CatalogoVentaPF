@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<!--
+  PANEL DE ADMINISTRACIÓN
+  -----------------------
+  Muestra los servicios en formato TABLA (más compacto)
+  con estadísticas y acceso rápido a crear/editar/eliminar.
+  Es la misma lógica que catalogo.html pero con distinto diseño.
+-->
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admin · Emotions GDL</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="catalogo-servicios/css/styles.css" rel="stylesheet">
+</head>
+
+<body class="bg-light">
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-emotions">
+    <div class="container d-flex justify-content-between">
+      <a class="navbar-brand" href="index.html">
+        Emotions<span>.</span>
+        <small style="font-size:.7rem; color:rgba(255,255,255,.4);"> Admin</small>
+      </a>
+      <a href="catalogo.html" class="btn btn-outline-light btn-sm">
+        ← Ver catálogo
+      </a>
+    </div>
+  </nav>
+
+  <div class="container py-4">
+
+    <!-- ENCABEZADO -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <div>
+        <h2 class="fw-bold mb-0">Panel de administración</h2>
+        <p class="text-muted mb-0">Gestiona los servicios del catálogo</p>
+      </div>
+      <button class="btn btn-morado" onclick="abrirModalNuevo()">
+        + Nuevo servicio
+      </button>
+    </div>
+
+    <!-- ESTADÍSTICAS
+         JavaScript llena estos números cuando carga los servicios -->
+    <div class="row g-3 mb-4">
+      <div class="col-sm-3">
+        <div class="card border-0 shadow-sm text-center p-3">
+          <div class="fs-2 fw-bold" style="color: #7c3aed;" id="stat-total">—</div>
+          <small class="text-muted">Total servicios</small>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="card border-0 shadow-sm text-center p-3">
+          <div class="fs-2 fw-bold text-success" id="stat-foto">—</div>
+          <small class="text-muted">Fotografía</small>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="card border-0 shadow-sm text-center p-3">
+          <div class="fs-2 fw-bold text-primary" id="stat-360">—</div>
+          <small class="text-muted">Video 360</small>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="card border-0 shadow-sm text-center p-3">
+          <div class="fs-2 fw-bold text-warning" id="stat-otros">—</div>
+          <small class="text-muted">Otros</small>
+        </div>
+      </div>
+    </div>
+
+    <!-- TABLA DE SERVICIOS -->
+    <div class="card border-0 shadow-sm">
+      <div class="card-header bg-white d-flex justify-content-between align-items-center py-3">
+        <span class="fw-semibold">Servicios registrados</span>
+        <input type="search"
+               class="form-control form-control-sm"
+               style="width: 200px;"
+               placeholder="Buscar..."
+               oninput="buscar(this.value)">
+      </div>
+      <div class="card-body p-0">
+        <table class="table table-hover align-middle mb-0">
+          <thead class="table-light">
+            <tr>
+              <th>#</th>
+              <th>Nombre</th>
+              <th>Categoría</th>
+              <th>Precio</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <!--
+            El tbody está vacío aquí.
+            JavaScript (la función renderTablaAdmin) lo llena
+            con una fila por cada servicio.
+          -->
+          <tbody id="contenedor-servicios"></tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- MODAL (igual que en catalogo.html) -->
+  <div class="modal fade" id="modalServicio" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="titulo-modal">Nuevo servicio</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <div id="error-formulario"></div>
+          <div class="mb-3">
+            <label class="form-label fw-semibold">Nombre <span class="text-danger">*</span></label>
+            <input type="text" class="form-control" id="campo-nombre" placeholder="Ej: Cabina de fotos">
+          </div>
+          <div class="mb-3">
+            <label class="form-label fw-semibold">Descripción</label>
+            <textarea class="form-control" id="campo-descripcion" rows="3"></textarea>
+          </div>
+          <div class="mb-3">
+            <label class="form-label fw-semibold">Categoría</label>
+            <select class="form-select" id="campo-categoria">
+              <option value="">-- Selecciona --</option>
+              <option value="fotografia">📸 Fotografía</option>
+              <option value="video360">🎥 Video 360</option>
+              <option value="decoracion">🎞️ Decoración</option>
+              <option value="bar">🎉 Bar & Snacks</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label class="form-label fw-semibold">Precio base (MXN)</label>
+            <input type="number" class="form-control" id="campo-precio" min="0">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button class="btn btn-morado" onclick="guardarServicio()">Guardar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST -->
+  <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 9999;">
+    <div id="mensaje-toast" class="toast align-items-center text-bg-dark border-0">
+      <div class="d-flex">
+        <div class="toast-body"></div>
+        <button class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="catalogo-servicios/js/servicios.js"></script>
+
+  <!--
+    SCRIPT LOCAL: sobreescribe mostrarServicios() para que
+    en admin se vea como TABLA en vez de tarjetas.
+    El resto de la lógica (guardar, eliminar, etc.) sigue igual.
+  -->
+  <script>
+    // Mapeo de categorías para mostrar texto legible
+    var nombreCategoria = {
+      fotografia: '📸 Fotografía',
+      video360:   '🎥 Video 360',
+      decoracion: '🎞️ Decoración',
+      bar:        '🎉 Bar & Snacks'
+    };
+
+    // Sobreescribimos mostrarServicios para que genere filas de tabla
+    function mostrarServicios(lista) {
+      var tbody = document.getElementById('contenedor-servicios');
+
+      // Actualizamos las estadísticas
+      document.getElementById('stat-total').textContent = lista.length;
+      document.getElementById('stat-foto').textContent  = lista.filter(function(s){ return s.categoria === 'fotografia'; }).length;
+      document.getElementById('stat-360').textContent   = lista.filter(function(s){ return s.categoria === 'video360'; }).length;
+      document.getElementById('stat-otros').textContent = lista.filter(function(s){ return s.categoria !== 'fotografia' && s.categoria !== 'video360'; }).length;
+
+      if (lista.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="5" class="text-center text-muted py-4">No hay servicios registrados.</td></tr>';
+        return;
+      }
+
+      var html = '';
+      for (var i = 0; i < lista.length; i++) {
+        var s = lista[i];
+        var precio = s.precio ? '$' + Number(s.precio).toLocaleString('es-MX') : '—';
+        var cat    = nombreCategoria[s.categoria] || s.categoria || '—';
+
+        html += '<tr>';
+        html += '  <td class="text-muted">' + s.id + '</td>';
+        html += '  <td><strong>' + s.nombre + '</strong><br><small class="text-muted">' + (s.descripcion || '').substring(0, 50) + '…</small></td>';
+        html += '  <td>' + cat + '</td>';
+        html += '  <td>' + precio + '</td>';
+        html += '  <td>';
+        html += '    <button class="btn btn-sm btn-outline-secondary me-1" onclick="abrirEdicion(' + s.id + ')">✏️ Editar</button>';
+        html += '    <button class="btn btn-sm btn-outline-danger" onclick="eliminarServicio(' + s.id + ', \'' + s.nombre + '\')">🗑️ Eliminar</button>';
+        html += '  </td>';
+        html += '</tr>';
+      }
+      tbody.innerHTML = html;
+    }
+  </script>
+
+</body>
+</html>

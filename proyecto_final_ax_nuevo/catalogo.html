@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<!--
+  CATÁLOGO COMPLETO
+  -----------------
+  Muestra TODOS los servicios con filtros por categoría
+  y un buscador. También permite crear nuevos servicios
+  desde el modal.
+-->
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Catálogo · Emotions GDL</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="catalogo-servicios/css/styles.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-emotions">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Emotions<span>.</span></a>
+      <button class="navbar-toggler" type="button"
+              data-bs-toggle="collapse" data-bs-target="#menu-nav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="menu-nav">
+        <ul class="navbar-nav ms-auto gap-2">
+          <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link active" href="catalogo.html">Catálogo</a></li>
+          <li class="nav-item"><a class="nav-link" href="admin.html">Admin</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ENCABEZADO -->
+  <div class="seccion-hero py-4">
+    <div class="container">
+      <h1 style="font-size: 1.8rem;">Catálogo de servicios</h1>
+      <p style="color: rgba(255,255,255,0.6); margin: 0;">
+        Encuentra el servicio perfecto para tu evento
+      </p>
+    </div>
+  </div>
+
+  <!-- BARRA DE FILTROS Y BÚSQUEDA
+       Sticky = se queda pegada arriba mientras haces scroll -->
+  <div class="bg-white border-bottom py-3 sticky-top shadow-sm">
+    <div class="container d-flex flex-wrap gap-2 align-items-center justify-content-between">
+
+      <!-- Botones de filtro por categoría -->
+      <div class="d-flex flex-wrap gap-2">
+        <!--
+          onclick="filtrar('', this)"
+          → El primer argumento '' = sin filtro (todos)
+          → "this" = el botón que se presionó (para marcarlo como activo)
+        -->
+        <button class="btn-filtro activo" onclick="filtrar('', this)">
+          Todos
+        </button>
+        <button class="btn-filtro" onclick="filtrar('fotografia', this)">
+          📸 Fotografía
+        </button>
+        <button class="btn-filtro" onclick="filtrar('video360', this)">
+          🎥 Video 360
+        </button>
+        <button class="btn-filtro" onclick="filtrar('decoracion', this)">
+          🎞️ Decoración
+        </button>
+        <button class="btn-filtro" onclick="filtrar('bar', this)">
+          🎉 Bar & Snacks
+        </button>
+      </div>
+
+      <!-- Buscador y botón nuevo -->
+      <div class="d-flex gap-2 align-items-center">
+        <!--
+          oninput="buscar(this.value)"
+          → Se ejecuta cada vez que el usuario escribe algo
+          → this.value = el texto que escribió
+        -->
+        <input type="search"
+               class="form-control form-control-sm"
+               style="width: 180px;"
+               placeholder="Buscar servicio..."
+               oninput="buscar(this.value)">
+
+        <button class="btn btn-morado btn-sm"
+                onclick="abrirModalNuevo()">
+          + Nuevo
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- GRID DE SERVICIOS (JavaScript lo llena) -->
+  <main class="container py-4">
+    <div class="row" id="contenedor-servicios">
+      <!-- Las tarjetas aparecen aquí -->
+    </div>
+  </main>
+
+  <!-- ══════════════════════════════════════════════════════
+       MODAL: formulario para crear o editar un servicio
+       Un "modal" es una ventana que aparece encima de la página
+       ══════════════════════════════════════════════════════ -->
+  <div class="modal fade" id="modalServicio" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <!-- Encabezado del modal -->
+        <div class="modal-header">
+          <!-- El título cambia según si es crear o editar (lo hace JS) -->
+          <h5 class="modal-title" id="titulo-modal">Nuevo servicio</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+
+        <!-- Cuerpo del modal: el formulario -->
+        <div class="modal-body">
+
+          <!-- Aquí aparecen los mensajes de error (los pone JS) -->
+          <div id="error-formulario"></div>
+
+          <!-- Campo: Nombre -->
+          <div class="mb-3">
+            <label class="form-label fw-semibold">
+              Nombre <span class="text-danger">*</span>
+            </label>
+            <input type="text"
+                   class="form-control"
+                   id="campo-nombre"
+                   placeholder="Ej: Cabina de fotos">
+          </div>
+
+          <!-- Campo: Descripción -->
+          <div class="mb-3">
+            <label class="form-label fw-semibold">Descripción</label>
+            <textarea class="form-control"
+                      id="campo-descripcion"
+                      rows="3"
+                      placeholder="Describe el servicio..."></textarea>
+          </div>
+
+          <!-- Campo: Categoría -->
+          <div class="mb-3">
+            <label class="form-label fw-semibold">Categoría</label>
+            <select class="form-select" id="campo-categoria">
+              <option value="">-- Selecciona una categoría --</option>
+              <option value="fotografia">📸 Fotografía</option>
+              <option value="video360">🎥 Video 360</option>
+              <option value="decoracion">🎞️ Decoración</option>
+              <option value="bar">🎉 Bar & Snacks</option>
+            </select>
+          </div>
+
+          <!-- Campo: Precio -->
+          <div class="mb-3">
+            <label class="form-label fw-semibold">Precio base (MXN)</label>
+            <input type="number"
+                   class="form-control"
+                   id="campo-precio"
+                   placeholder="Ej: 2500"
+                   min="0">
+          </div>
+
+        </div>
+
+        <!-- Pie del modal: botones -->
+        <div class="modal-footer">
+          <button type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal">
+            Cancelar
+          </button>
+          <!-- onclick llama a guardarServicio() en servicios.js -->
+          <button type="button"
+                  class="btn btn-morado"
+                  onclick="guardarServicio()">
+            Guardar
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="mt-4">
+    <p class="mb-0">© 2025 <span>Emotions GDL</span> · Guadalajara, Jalisco</p>
+  </footer>
+
+  <!-- TOAST -->
+  <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 9999;">
+    <div id="mensaje-toast" class="toast align-items-center text-bg-dark border-0">
+      <div class="d-flex">
+        <div class="toast-body"></div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto"
+                data-bs-dismiss="toast"></button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="catalogo-servicios/js/servicios.js"></script>
+
+</body>
+</html>
