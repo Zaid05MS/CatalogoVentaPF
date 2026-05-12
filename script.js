@@ -32,8 +32,12 @@ function eliminarProducto(index) {
   mostrarCarrito();
 }
 
+// Muestra el carrito
 function mostrarCarrito() {
   let contenedor = document.getElementById("carrito");
+  let totalElemento = document.getElementById("total");
+
+  if(!contenedor || !totalElemento) return;
 
   // Limpiar el contenedor
   contenedor.innerHTML = "";
@@ -54,25 +58,36 @@ function mostrarCarrito() {
 
 }
 
+// Valida la compra
 function validarCompra() {
   let nombre = document.getElementById("cliente").value;
   let direccion = document.getElementById("direccion").value;
 
-  if (nombre === "" || direccion === "") {
+  if (nombre === "" || direccion === "" || carrito.length === 0) {
     alert("Completa todos los campos");
     return;
   }
 
-  if (carrito.length === 0) {
-    alert("El carrito esta vacio");
-    return;
-  }
+  // Mensaje para WhatsApp
+  let texto = "Hola, soy " + nombre + ". Quiero cotizar: ";
+
+  carrito.forEach(function(p) {
+    texto +=
+    p.nombre + " ($" + p.precio + "), ";
+  });
+
+  // Abrir WhatsApp
+  window.open(
+    `https://wa.me/523321711900?text=${texto}`,
+    "_blank"
+  );
 
   alert("Compra realizada con exito");
 
   // Se reinicia el carro
   carrito = [];
   total = 0;
+  
   mostrarCarrito();
 }
 
@@ -147,4 +162,21 @@ function iniciarSesion() {
   }
 
   alert("Datos enviados");
+}
+
+// Solo permite que se ingresen correos gmail o hotmail
+function validarCorreo() {
+  let correo =
+    document.getElementById("correo").value;
+
+  if (
+    correo.includes("@gmail.com") ||
+    correo.includes("@hotmail.com")
+  ) {
+    alert("Cotización enviada");
+  } else {
+    alert(
+      "Solo se aceptan correos Gmail o Hotmail"
+    );
+  }
 }
