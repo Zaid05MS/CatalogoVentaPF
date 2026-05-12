@@ -1,93 +1,192 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Catálogo de Ventas</title>
-    
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>Emotions GDL | Eventos Exclusivos</title>
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@1,400;1,700&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="css/style.css">
-
 </head>
-<body>
 
-    <header>
-        <h1>EMOTIONS GDL</h1>
-    </header>
+<body id="page-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" style="padding: 10px 0;">
+        <div class="container">
+            <a class="navbar-brand" href="#" style="color: #d4af37; font-weight: bold;">EMOTIONS GDL</a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-    <section class="hero-aesthetic">
-    <div class="hero-overlay">
-        <div class="hero-contenido"></div>
-        <h2>Creamos Momentos Inolvidables</h2>
-        <p>Renta de mobiliario para tus eventos más especiales.</p>
+            <div class="collapse navbar-collapse" id="menuPrincipal">
+               <ul class="navbar-nav ms-auto text-uppercase" style="font-weight: 600; letter-spacing: 1px;">
+        <li class="nav-item">
+            <a class="nav-link" href="#inicio">INICIO</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#nosotros">NOSOTROS</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#servicios">SERVICIOS</a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="catalogo.html">CATÁLOGO</a>
+        </li>
+        
+        <li class="nav-item">
+            <a class="nav-link" href="contacto.html" style="color: #d4af37 !important; font-weight: bold;">
+                COTIZACIÓN
+            </a>
+        </li>
+    </ul>
+
+
+
+            </div>
+        </div>
+    </nav>
+
+    <section class="seccion-inicio" id="inicio">
+        <div class="container text-center">
+            <div class="contenido-hero">
+                <h1 class="titulo-pro">Elevamos el <span class="destaque"> NIVEL </span> de tu Evento</h1>
+                <p class="frase-cursiva">"Creando recuerdos inolvidables en cada toma"</p>
+                
+                <div class="espacio-imagen">
+                    <div class="marco-foto">
+                        <img src="img/portada.jpg" alt="Emotions GDL" class="img-pro">
+                    </div>
+                </div>
+            </div>
+        </div>
+   <section class="page-section" id="nosotros" style="padding: 100px 0; background-color: #f9f9f9;">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="titulo-pro" style="font-size: 2.8rem;">NUESTRA <span class="destaque">ESENCIA</span></h2>
+            <p class="frase-cursiva" style="font-size: 1.4rem;">Empresa familiar con pasión por los detalles.</p>
+        </div>
+
+        <div class="row align-items-center">
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="marco-foto-nosotros">
+                    <img src="img/shotsNosotros.jpg" class="img-fluid rounded shadow" alt="Decoración de eventos">
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-12 text-center mb-4">
+                <h3 style="color: #d4af37; font-family: 'Playfair Display', serif; font-weight: 700; margin-bottom: 20px;">
+                    Un Sueño que Nace en Familia
+                </h3>
+                <p style="font-size: 1.05rem; line-height: 1.8; color: #555; text-align: center;">
+                    Emotions GDL comenzó en 2015 como un proyecto en el corazón de nuestra familia. Entendemos el valor de cada celebración y ponemos el alma en que cada mueble cuente una historia de elegancia.
+                </p>
+                
+            </div>
+
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="marco-foto-nosotros">
+                    <img src="img/alfombraNosotros.jpg" class="img-fluid rounded shadow" alt="Detalle de evento">
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 
-    <main class="contenedor">
+<section class="page-section py-5" id="servicios" style="background-color: #ffffff;">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="titulo-pro" style="font-size: 2.8rem;">NUESTROS <span class="destaque">SERVICIOS</span></h2>
+            <p class="text-muted">Excelencia y diversión garantizada en cada detalle.</p>
+        </div>
 
-        <section class="productos">
+        <div class="row text-center">
             
-            <div class="tarjeta-producto">
-                <img src="img/carrito.jpg" alt="Carro de Bebidas">
-                <h3>Carro de Bebidas</h3>
-                <p>$1500</p>
-                <button onclick="agregarProducto('Carro de bebidas', 1500)">Agregar al Carrito</button>
+            <div class="col-md-4 mb-5">
+                <div class="servicio-card">
+                    <img src="img/shotsServicio.jpg" class="img-fluid rounded mb-4 shadow" alt="Barra de Shots">
+                    <h4 class="text-gold" style="color: #d4af37; font-weight: bold;">BARRA DE SHOTS & MIXOLOGÍA</h4>
+                    <ul class="list-unstyled mt-3 text-muted" style="line-height: 2;">
+                        <li><i class="fas fa-check" style="color: #d4af37;"></i> Mezclas exclusivas y personalizadas</li>
+                        <li><i class="fas fa-check" style="color: #d4af37;"></i> Ingredientes premium y frescos</li>
+                        <li><i class="fas fa-check" style="color: #d4af37;"></i> Staff profesional y carismático</li>
+                    </ul>
+                </div>
             </div>
 
-            <!-- TARJETA 2: La Pista -->
-    <div class="tarjeta-producto">
-        <img src="img/pistaBaile.webp" alt="Pista de Baile">
-        <h3>Pista de Baile</h3>
-        <p>$2500</p>
-        <button onclick="agregarProducto('Pista de Baile', 2500)">Agregar al Carrito</button>
-    </div>
-
-    <!-- TARJETA 3: La cabinaa -->
-    <div class="tarjeta-producto">
-        <img src="img/cabina.png" alt="Cabina de Fotos">
-        <h3>Cabina de foto</h3>
-        <p>$3500</p>
-        <button onclick="agregarProducto('Cabina de Fotos', 3500)">Agregar al Carrito</button>
-    </div>
-
-    <!-- TARJETA 4: Foto 360 -->
-    <div class="tarjeta-producto">
-        <img src="img/360.webp" alt="Cabina de Fotos 360">
-        <h3>Cabina de fotos 360</h3>
-        <p>$2900</p>
-        <button onclick="agregarProducto('Cabina de Fotos 360', 2900)">Agregar al Carrito</button>
-    </div>
-        </section>
-
-        <aside class="carrito-seccion">
-            <h2>Tu Carrito</h2>
-            <div id="carrito">
+            <div class="col-md-4 mb-5">
+                <div class="servicio-card">
+                    <img src="img/casitafotoServicio.jpg" class="img-fluid rounded mb-4 shadow" alt="Espejo 360">
+                    <h4 class="text-gold" style="color: #d4af37; font-weight: bold;">ESPEJO 360 & VIDEO EXP.</h4>
+                    <ul class="list-unstyled mt-3 text-muted" style="line-height: 2;">
+                        <li><i class="fas fa-check" style="color: #d4af37;"></i> Captura de video en alta definición</li>
+                        <li><i class="fas fa-check" style="color: #d4af37;"></i> Rotación lenta y efectos especiales</li>
+                        <li><i class="fas fa-check" style="color: #d4af37;"></i> Descarga instantánea vía QR/Email</li>
+                    </ul>
+                </div>
             </div>
-            <h3 id="total">Total: $0</h3>
 
-            <div class="formulario-pago">
-                <input type="text" id="cliente" placeholder="Nombre del cliente">
-                <input type="text" id="direccion" placeholder="Dirección de envío">
-                <button onclick="validarCompra()">Finalizar Compra</button>
+            <div class="col-md-4 mb-5">
+                <div class="servicio-card">
+                    <img src="img/alfombraNosotros.jpg" class="img-fluid rounded mb-4 shadow" alt="Foto Booth">
+                    <h4 class="text-gold" style="color: #d4af37; font-weight: bold;">FOTO BOOTH ESPEJO & ESTILO</h4>
+                    <ul class="list-unstyled mt-3 text-muted" style="line-height: 2;">
+                        <li><i class="fas fa-check" style="color: #d4af37;"></i> Fotos instantáneas de alta calidad</li>
+                        <li><i class="fas fa-check" style="color: #d4af37;"></i> Fondo personalizado y props exclusivos</li>
+                        <li><i class="fas fa-check" style="color: #d4af37;"></i> Galería digital de todo el evento</li>
+                    </ul>
+                </div>
             </div>
-        </aside>
-    </main>
-    
-<footer class="footer-cuadro">
-    <div class="footer-contenido">
-        <div class="footer-info">
-            <h4>EMOTIONS GDL</h4>
-            <p>Transformando tus ideas en realidades decorativas.</p>
+
         </div>
-        <div class="footer-separador"></div>
-        <div class="footer-redes">
-            <a href="#">Instagram</a>
-            <a href="#">WhatsApp</a>
-            <a href="#">Catálogo PDF</a>
+    </div>
+</section>
+
+
+
+
+    <footer class="footer py-5" style="background-color: #111; color: #fff; border-top: 2px solid #d4af37;">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 text-center text-lg-start mb-4 mb-lg-0">
+                <h4 style="color: #d4af37; font-family: 'Playfair Display', serif; font-weight: 700; letter-spacing: 2px;">EMOTIONS GDL</h4>
+                <p class="small text-muted mt-3" style="line-height: 1.8;">
+                    Especialistas en crear experiencias visuales y sensoriales de alto nivel en Guadalajara. Llevamos la diversión y la elegancia a tu evento.
+                </p>
+                <p class="small mb-0 mt-2">&copy; 2026 Emotions GDL. Todos los derechos reservados.</p>
+            </div>
+
+            <div class="col-lg-4 text-center mb-4 mb-lg-0">
+    <h5 class="mb-4" style="font-size: 0.9rem; letter-spacing: 3px; color: #d4af37;">SÍGUENOS</h5>
+    <div class="d-flex justify-content-center">
+        <a class="btn-social-premium mx-2" href="https://www.instagram.com/emotions360gdl" target="_blank">
+            <i class="fab fa-instagram"></i>
+        </a>
+        
+        <a class="btn-social-premium mx-2" href="https://www.facebook.com/emotions360gdl" target="_blank">
+            <i class="fab fa-facebook-f"></i>
+        </a>
+        
+        <a class="btn-social-premium mx-2" href="https://wa.me/523321711900?text=Hola%20Emotions%20GDL,%20me%20gustaría%20solicitar%20una%20cotización%20para%20mi%20evento." target="_blank">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+</div>
+
+            <div class="col-lg-4 text-center text-lg-end">
+                <h5 class="mb-4" style="font-size: 0.9rem; letter-spacing: 3px; color: #d4af37;">CONTACTO</h5>
+                <ul class="list-unstyled small text-muted">
+                    <li class="mb-2"><i class="fas fa-map-marker-alt me-2" style="color: #d4af37;"></i> Guadalajara, Jalisco, MX.</li>
+                    <li class="mb-2"><i class="fas fa-phone me-2" style="color: #d4af37;"></i> 33 2171 1900</li>
+                </ul>
+            </div>
         </div>
-        <p class="copyright">© 2024 Todos los derechos reservados.</p>
     </div>
 </footer>
-    <script src="script.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/scripts.js"></script>
 </body>
 </html>
