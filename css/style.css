@@ -267,8 +267,10 @@
 }
 
 .text-gold {
+    color: #d4af37 !important;
     letter-spacing: 1px;
-    margin-top: 15px;
+    color: #d4af37;
+    font-weight: bold;
 }
 
 
