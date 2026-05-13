@@ -1,0 +1,317 @@
+
+
+/* --- DISEÑO DE NAVBAR  --- */
+
+
+/* --- HEADER ESTILO "PREMIUM" --- */
+
+.navbar {
+    background-color: #1a1a1a !important; /* Negro total */
+    padding-top: 20px !important;         /* Le da ese grosor elegante */
+    padding-bottom: 20px !important;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.5); /* Línea dorada sutil */
+}
+
+/* El nombre Emotions GDL a la izquierda */
+.navbar-brand {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1.4rem;
+    color: #d4af37 !important;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* Distribución de los botones a la derecha */
+.navbar-nav {
+    margin-left: auto; /* Esto empuja todo el menú a la derecha */
+}
+
+.nav-item {
+    margin-left: 15px; /* Espacio entre cada botón */
+}
+
+.nav-link {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 0.85rem; /* Letra pequeña y elegante */
+    color: #ffffff !important;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+/* Efecto dorado al pasar el mouse */
+.nav-link:hover {
+    color: #d4af37 !important;
+}
+
+/* Ajuste para que el contenido no se pegue a las orillas de la pantalla */
+.navbar .container {
+    max-width: 1200px;
+}
+
+/* titulos diseño*/
+/* --- HERO SECTION TEXT STYLES --- */
+
+.hero-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 3.5rem;
+    text-transform: uppercase;
+    letter-spacing: 4px; /* Mayor espaciado para un look más premium */
+    color: #1a1a1a;
+    line-height: 1.2;
+    margin-bottom: 10px;
+}
+
+.hero-title-accent {
+    color: #d4af37; /* Dorado institucional */
+    font-style: italic;
+    font-weight: 700;
+}
+
+.hero-subtitle {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.2rem;
+    color: #4a4a4a; /* Gris profundo, más serio que el anterior */
+    margin-top: -10px;
+    font-weight: 400;
+}
+
+/* Responsividad para dispositivos móviles */
+@media (max-width: 992px) {
+    .hero-title { font-size: 2.5rem; }
+    .hero-subtitle { font-size: 1.8rem; }
+}
+
+/* 1. EL ESPACIO PARA QUE NO SE OCULTE */
+.seccion-inicio {
+    padding-top: 100px !important; /* El grosor del header + un respiro */
+    padding-bottom: 50px;
+    background-color: #ffffff;
+}
+
+/* 2. DISEÑO DEL TÍTULO PRINCIPAL */
+.titulo-pro {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 3rem; /* Tamaño elegante */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #1a1a1a;
+    margin-bottom: 10px;
+}
+
+/* LA PALABRA DORADA */
+.destaque {
+    color: #d4af37;
+    font-style: italic;
+    margin-left: 10px; /* Separación para que no se pegue a "EL" */
+    margin-right: 10px; /* Separación para que no se pegue a "DE" */
+}
+
+/* 3. DISEÑO DE LA FRASE CURSIVA */
+.frase-cursiva {
+    font-family: 'Great Vibes', cursive;
+    font-size: 1.8rem;
+    color: #555;
+    margin-bottom: 40px; /* Espacio antes de la foto */
+}
+
+/* 4. EL MARCO DE LA FOTO (COMO TU FOTO 1) */
+.marco-foto {
+    border: 1px solid #d4af37; /* Marco dorado delgado */
+    padding: 10px;
+    background-color: #fff;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    display: inline-block; /* Para que el marco se ajuste a la foto */
+    width: 90%; /* Ocupa casi todo el ancho */
+    max-width: 1100px;
+}
+
+.img-pro {
+    width: 100%;
+    height: auto;
+    max-height: 550px;
+    object-fit: cover;
+    display: block;
+}
+
+
+/* La palabra dorada dentro del título CURSIVA*/
+.destaque {
+    color: #d4af37;
+    font-family: 'Playfair Display', serif;
+    font-style: italic; /* Esto le da la inclinación elegante */
+    font-weight: 400;    /* Esto la hace ver fina, no tosca */
+    text-transform: none; /* Para que no sea todo mayúsculas si no quieres */
+    margin-left: 10px;
+}
+
+/* La frase de abajo (Subtítulo) */
+.frase-cursiva {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.2rem;   /* Un poco más grande para que luzca el trazo */
+    color: #888;         /* Un gris más suave para que se vea más fina */
+    font-weight: 400;    /* Grosor mínimo */
+    margin-top: -10px;   /* Para que se acerque al título */
+    letter-spacing: 1px;
+}
+
+/* DISEÑO IMAGEN PRINCIPAL*/
+/* EL CONTENEDOR DEL MARCO */
+.marco-foto {
+    border: 1px solid #d4af37; /* El borde dorado fino */
+    padding: 12px;             /* Espacio entre la foto y el borde */
+    background-color: #ffffff;
+    display: inline-block;
+    width: 100%;
+    max-width: 1100px;        /* Evita que se haga gigante en pantallas grandes */
+    margin: 0 auto;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1); /* Sombra elegante */
+}
+
+/* LA IMAGEN (EL MOTOR DEL TAMAÑO) */
+/* LA IMAGEN (ACTUALIZADA PARA QUE SALGA COMPLETA) */
+.img-pro {
+    width: 100%;
+    /* En lugar de 500px fijos, usamos un valor que se adapte mejor */
+    height: auto; 
+    min-height: 400px;    /* Altura mínima para que no se vea muy delgada */
+    max-height: 650px;    /* Altura máxima para que no se coma toda la pantalla */
+    object-fit: cover;    /* Esto sigue siendo la clave para que no se deforme */
+    object-position: center 20%; /* Ajustamos para que se vean más las caras y menos el suelo */
+    display: block;
+}
+
+/* Ajuste para que en celulares se vea bien */
+@media (max-width: 768px) {
+    .img-pro {
+        max-height: 400px;    /* Más pequeña en móviles */
+    }
+}
+
+/* Ajuste para que en celulares no sea tan alta */
+@media (max-width: 768px) {
+    .img-pro {
+        height: 300px;        /* Altura más cómoda para celulares */
+    }
+}
+
+
+/* DISEÑO SECCION NOSOTROS*/
+
+/* Estilo para los marcos laterales de la esencia */
+.marco-foto-nosotros {
+    border: 1px solid #d4af37;
+    padding: 8px;
+    background-color: #fff;
+    transition: transform 0.3s ease;
+}
+
+.marco-foto-nosotros:hover {
+    transform: translateY(-10px); /* Efecto sutil al pasar el mouse */
+}
+
+.marco-foto-nosotros img {
+    width: 100%;
+    height: 350px;       /* Altura fija para que ambas fotos midan lo mismo */
+    object-fit: cover;   /* Para que no se deformen */
+}
+
+/* Botón Dorado y Negro */
+.btn-contacto-esencia {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: #1a1a1a;
+    color: #d4af37;
+    border: 1px solid #d4af37;
+    text-decoration: none;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.btn-contacto-esencia:hover {
+    background-color: #d4af37;
+    color: #1a1a1a;
+}
+
+/* Ajuste para móviles: que el texto no quede pegado */
+@media (max-width: 992px) {
+    .marco-foto-nosotros img {
+        height: 250px;
+    }
+}
+
+
+/* DISEÑO SERVICIOS */
+
+.servicio-card {
+    padding: 20px;
+    transition: all 0.3s ease;
+    border-radius: 15px;
+}
+
+.servicio-card:hover {
+    transform: translateY(-10px);
+    background-color: #fdfdfd;
+}
+
+.servicio-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-bottom: 3px solid #d4af37; /* Línea dorada bajo la foto */
+}
+
+.text-gold {
+    color: #d4af37 !important;
+    letter-spacing: 1px;
+    color: #d4af37;
+    font-weight: bold;
+}
+
+
+
+/* Botones de Redes Sociales Premium */
+.btn-social-premium {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    border: 1px solid #d4af37;
+    border-radius: 50%;
+    color: #d4af37;
+    text-decoration: none;
+    transition: all 0.4s ease;
+    font-size: 1.2rem;
+}
+
+.btn-social-premium:hover {
+    background-color: #d4af37;
+    color: #111;
+    transform: translateY(-5px);
+    box-shadow: 0px 5px 15px rgba(212, 175, 55, 0.4);
+}
+
+
+/* PIE DE PAGINA */
+/* Enlaces del Footer */
+.footer-link {
+    color: #888;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-link:hover {
+    color: #d4af37;
+    text-decoration: underline;
+}
+
+/* Tipografía de apoyo */
+.text-muted {
+    color: #aaa !important;
+}
