@@ -15,8 +15,6 @@ Desarrollar una plataforma web intuitiva y atractiva que facilite la contrataci�
 2. Abrir la carpeta del proyecto
 3. Ejecutar el archivo `index.html` en el navegador
 
-También se puede utilizar una extensión como Live Server en Visual Studio Code para visualizar correctamente el proyecto.
-
 ##Uso
 
 La página permite a los usuarios:
@@ -32,6 +30,7 @@ La página permite a los usuarios:
 - CSS (Bootstrap)
 - JavaScript
 - SQLite
+- PHP
 
 ##Autores 
 - Juan Pablo Gamboa mena
