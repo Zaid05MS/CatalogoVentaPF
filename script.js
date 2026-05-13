@@ -78,7 +78,7 @@ function validarCompra() {
 
   // Abrir WhatsApp
   window.open(
-    `https://wa.me/523321711900?text=${texto}`,
+    `https://wa.me/523328056256?text=${texto}`,
     "_blank"
   );
 
