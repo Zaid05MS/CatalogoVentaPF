@@ -6,9 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Catálogo Premium - Emotions GDL</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
     <style>
@@ -18,9 +16,7 @@
             font-family: 'Poppins', sans-serif;
         }
 
-        .text-gold {
-            color: #d4af37 !important;
-        }
+        .text-gold { color: #d4af37 !important; }
 
         .card-producto {
             background: #111;
@@ -63,18 +59,43 @@
             border: none;
         }
 
-        .btn-gold:hover {
-            background: #b8962d;
+        .btn-gold:hover { background: #b8962d; }
+
+        /* Estado de carga */
+        #estado-carga {
+            text-align: center;
+            padding: 60px 20px;
+            color: #888;
+        }
+
+        #estado-error {
+            display: none;
+            text-align: center;
+            padding: 40px 20px;
+            color: #e74c3c;
+        }
+
+        .spinner-border { color: #d4af37; }
+
+        /* Badge de categoría */
+        .badge-categoria {
+            font-size: 11px;
+            background: #222;
+            color: #d4af37;
+            border: 1px solid #d4af37;
+            padding: 3px 8px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
     </style>
 </head>
 
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark sticky-top"
-        style="background-color: #000; border-bottom: 1px solid #333;">
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background-color: #000; border-bottom: 1px solid #333;">
         <div class="container">
-            <a class="navbar-brand" href="index.html";">EMOTIONS GDL</a>
+            <a class="navbar-brand" href="index.html">EMOTIONS GDL</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -93,97 +114,43 @@
     <header class="py-5 text-center">
         <h1 class="display-4 text-gold" style="font-family: 'Playfair Display';">Catálogo de Experiencias</h1>
         <p class="text-muted">Personaliza tu evento con nuestros servicios exclusivos</p>
+
+        <!-- Filtro por categoría -->
+        <div class="mt-3" id="filtros-categorias">
+            <button class="btn btn-sm btn-outline-warning me-2 mb-2 filtro-btn activo" data-categoria="">
+                Todos
+            </button>
+        </div>
     </header>
 
     <div class="container mb-5">
         <div class="row">
+
+            <!-- Columna de productos -->
             <div class="col-lg-8">
-                <div class="row">
-                    <div class="col-md-6 mb-4">
-                        <div class="card card-producto" data-bs-toggle="modal" data-bs-target="#modalProd1">
-                            <img src="img/shotsServicio.jpg" class="card-img-top img-producto" alt="Shots">
-                            <div class="card-body text-center">
-                                <h5 class="card-title">Carrito de Shots</h5>
-                                <p class="text-gold fw-bold">$2,500</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 mb-4">
-                        <div class="card card-producto" data-bs-toggle="modal" data-bs-target="#modalProd2">
-                            <img src="img/alfombraNosotros.jpg" class="card-img-top img-producto" alt="Espejo">
-                            <div class="card-body text-center">
-                                <h5 class="card-title">Hollywood Spotlight</h5>
-                                <p class="text-gold fw-bold">$4,800</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 mb-4">
-                        <div class="card card-producto" data-bs-toggle="modal" data-bs-target="#modalProd3">
-                            <img src="img/cabinaCatalogo.jpg" class="card-img-top img-producto" alt="Cabina de foto">
-                            <div class="card-body text-center">
-                                <h5 class="card-title">Cabina de fotos</h5>
-                                <p class="text-gold fw-bold">$3,500</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 mb-4">
-                        <div class="card card-producto" data-bs-toggle="modal" data-bs-target="#modalProd4">
-                            <img src="img/foto360Catalogo.jpg" class="card-img-top img-producto" alt="foto 360">
-                            <div class="card-body text-center">
-                                <h5 class="card-title">Foto 360</h5>
-                                <p class="text-gold fw-bold">$1,800</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 mb-4">
-                        <div class="card card-producto" data-bs-toggle="modal" data-bs-target="#modalProd5">
-                            <img src="img/audioCatalogo.jpg" class="card-img-top img-producto" alt="Audio">
-                            <div class="card-body text-center">
-                                <h5 class="card-title">Audio & DJ </h5>
-                                <p class="text-gold fw-bold">$5,500</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 mb-4">
-                        <div class="card card-producto" data-bs-toggle="modal" data-bs-target="#modalProd6">
-                            <img src="img/letrasCatalogo.jpg" class="card-img-top img-producto" alt="Letras">
-                            <div class="card-body text-center">
-                                <h5 class="card-title">Letras Gigantes</h5>
-                                <p class="text-gold fw-bold">$1,200</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 mb-4">
-                        <div class="card card-producto" data-bs-toggle="modal" data-bs-target="#modalProd7">
-                            <img src="img/pistaCatalogo.jpg" class="card-img-top img-producto"
-                                alt="Pista de pistaBaile">
-                            <div class="card-body text-center">
-                                <h5 class="card-title">Pista de Baile</h5>
-                                <p class="text-gold fw-bold">$2,550</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 mb-4">
-                        <div class="card card-producto" data-bs-toggle="modal" data-bs-target="#modalProd8">
-                            <img src="img/iluminacioCtalogo.jpg" class="card-img-top img-producto" alt="Iluminacion">
-                            <div class="card-body text-center">
-                                <h5 class="card-title">Glow Production</h5>
-                                <p class="text-gold fw-bold">$2,200</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 mb-4">
-                        <div class="card card-producto" data-bs-toggle="modal" data-bs-target="#modalProd9">
-                            <img src="img/accesorioCata.jpg" class="card-img-top img-producto" alt="Accesorios">
-                            <div class="card-body text-center">
-                                <h5 class="card-title">Accesorios</h5>
-                                <p class="text-gold fw-bold">$3,500</p>
-                            </div>
-                        </div>
-                    </div>
+
+                <!-- Estado: cargando -->
+                <div id="estado-carga">
+                    <div class="spinner-border mb-3" role="status"></div>
+                    <p>Cargando servicios...</p>
                 </div>
+
+                <!-- Estado: error de conexión -->
+                <div id="estado-error">
+                    <i class="fas fa-exclamation-triangle fa-3x mb-3"></i>
+                    <h5>No se pudo conectar con la base de datos</h5>
+                    <p class="small text-muted">
+                        Asegúrate de abrir el proyecto desde XAMPP:<br>
+                        <code>http://localhost/CatalogoVentaPF-main/catalogo.html</code>
+                    </p>
+                </div>
+
+                <!-- Aquí se insertan las tarjetas dinámicamente -->
+                <div class="row" id="contenedor-productos"></div>
+
             </div>
 
+            <!-- Carrito lateral -->
             <div class="col-lg-4">
                 <div id="panel-carrito">
                     <h4 class="text-gold mb-4 border-bottom pb-2">Tu Cotización</h4>
@@ -193,188 +160,188 @@
                     <hr style="background-color: #d4af37;">
                     <h5 id="total">Total: $0</h5>
                     <div class="mt-4">
-                        <input type="text" id="cliente" class="form-control mb-2 bg-dark text-white border-secondary"
-                            placeholder="Nombre Completo">
-                        <input type="text" id="direccion" class="form-control mb-3 bg-dark text-white border-secondary"
-                            placeholder="Lugar del Evento">
+                        <input type="text" id="cliente" class="form-control mb-2 bg-dark text-white border-secondary" placeholder="Nombre Completo">
+                        <input type="text" id="direccion" class="form-control mb-3 bg-dark text-white border-secondary" placeholder="Lugar del Evento">
                         <button class="btn btn-gold w-100" onclick="validarCompra()">RESERVAR AHORA</button>
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
 
-
-
-
-    <div class="modal fade" id="modalProd1" tabindex="-1" aria-hidden="true">
+    <!-- Modal dinámico (un solo modal reutilizable) -->
+    <div class="modal fade" id="modalProducto" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header border-0">
-                    <h5 class="modal-title text-gold">Carrito de Shots</h5><button type="button"
-                        class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                    <h5 class="modal-title text-gold" id="modal-nombre">Nombre del servicio</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
-                    <p>Incluye carrito iluminado de lujo, shots de colores ilimitados por tiempo contratado y animador
-                        con la máscara original de "La Máscara".</p>
-                    <p class="h4 text-gold">$2,500</p>
+                    <img id="modal-imagen" src="" alt="" class="img-fluid rounded mb-3" style="max-height:200px; width:100%; object-fit:cover;">
+                    <p id="modal-descripcion"></p>
+                    <span class="badge-categoria" id="modal-categoria"></span>
+                    <p class="h4 text-gold mt-3" id="modal-precio"></p>
                 </div>
-                <div class="modal-footer border-0"><button class="btn btn-gold"
-                        onclick="agregarProducto('Carrito de Shots', 2500)" data-bs-dismiss="modal">Agregar</button>
+                <div class="modal-footer border-0">
+                    <button class="btn btn-gold" id="btn-agregar-modal" data-bs-dismiss="modal">
+                        Agregar al carrito
+                    </button>
                 </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal fade" id="modalProd2" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header border-0">
-                    <h5 class="modal-title text-gold">Hollywood Spotlight</h5><button type="button"
-                        class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body">
-                    <p>Experiencia de alfombra roja con unifilares dorados y luces profesionales. El set más elegante
-                        para tus fotos.</p>
-                    <p class="h4 text-gold">$4,800</p>
-                </div>
-                <div class="modal-footer border-0"><button class="btn btn-gold"
-                        onclick="agregarProducto('Hollywood Spotlight', 4800)" data-bs-dismiss="modal">Agregar</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal fade" id="modalProd3" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header border-0">
-                    <h5 class="modal-title text-gold">Cabina de fotos</h5><button type="button"
-                        class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body">
-                    <p>Cabina cerrada o abierta con impresión térmica instantánea, plantillas personalizadas y
-                        accesorios divertidos.</p>
-                    <p class="h4 text-gold">$3,500</p>
-                </div>
-                <div class="modal-footer border-0"><button class="btn btn-gold"
-                        onclick="agregarProducto('Cabina de fotos', 3500)" data-bs-dismiss="modal">Agregar</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal fade" id="modalProd4" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header border-0">
-                    <h5 class="modal-title text-gold">Plataforma 360 Pro</h5><button type="button"
-                        class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body">
-                    <p>Videos en slow motion de alta definición con software de última generación, descarga instantánea
-                        vía QR y props premium.</p>
-                    <p class="h4 text-gold">$1,800</p>
-                </div>
-                <div class="modal-footer border-0"><button class="btn btn-gold"
-                        onclick="agregarProducto('Foto 360', 1800)" data-bs-dismiss="modal">Agregar</button></div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal fade" id="modalProd5" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header border-0">
-                    <h5 class="modal-title text-gold">Audio & DJ Pro</h5><button type="button"
-                        class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body">
-                    <p>Sistema de sonido profesional de alta fidelidad, DJ mezclando en vivo todos los géneros y cabina
-                        iluminada de última generación.</p>
-                    <p class="h4 text-gold">$5,500</p>
-                </div>
-                <div class="modal-footer border-0"><button class="btn btn-gold"
-                        onclick="agregarProducto('Audio & DJ', 5500)" data-bs-dismiss="modal">Agregar</button></div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal fade" id="modalProd6" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header border-0">
-                    <h5 class="modal-title text-gold">Letras Gigantes Premium</h5><button type="button"
-                        class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body">
-                    <p>Renta de iniciales o "XV" iluminadas con focos vintage tipo feria. Altura de 1.20m para un
-                        impacto visual máximo.</p>
-                    <p class="h4 text-gold">$1,200</p>
-                </div>
-                <div class="modal-footer border-0"><button class="btn btn-gold"
-                        onclick="agregarProducto('Letras Gigantes', 1200)" data-bs-dismiss="modal">Agregar</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal fade" id="modalProd7" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header border-0">
-                    <h5 class="modal-title text-gold">Pista de Baile Pixel</h5><button type="button"
-                        class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body">
-                    <p>Pista LED pixelada con efectos de colores infinitos que reaccionan al ritmo de la música.</p>
-                    <p class="h4 text-gold">$2,550</p>
-                </div>
-                <div class="modal-footer border-0"><button class="btn btn-gold"
-                        onclick="agregarProducto('Pista de Baile', 2550)" data-bs-dismiss="modal">Agregar</button></div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal fade" id="modalProd8" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header border-0">
-                    <h5 class="modal-title text-gold">Glow Production</h5><button type="button"
-                        class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body">
-                    <p>Paquete completo de iluminación robótica, pantallas de visuales y efectos láser para transformar
-                        tu salón.</p>
-                    <p class="h4 text-gold">$2,200</p>
-                </div>
-                <div class="modal-footer border-0"><button class="btn btn-gold"
-                        onclick="agregarProducto('Glow Production', 2200)" data-bs-dismiss="modal">Agregar</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal fade" id="modalProd9" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header border-0">
-                    <h5 class="modal-title text-gold">Accesorios & Props</h5><button type="button"
-                        class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body">
-                    <p>Renta de maletas cargadas con pelucas, lentes gigantes, boas, máscaras originales y letreros
-                        interactivos para tus fotos.</p>
-                    <p class="h4 text-gold">$3,500</p>
-                </div>
-                <div class="modal-footer border-0"><button class="btn btn-gold"
-                        onclick="agregarProducto('Accesorios', 3500)" data-bs-dismiss="modal">Agregar</button></div>
             </div>
         </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script>
-</body>
+    <script>
+        // ─── Variables globales del modal ───────────────────────────
+        let servicioActual = null;
 
+        // ─── Cargar productos desde la API ──────────────────────────
+        function cargarProductos(categoria = '') {
+            const url = categoria
+                ? `api/listar.php?categoria=${encodeURIComponent(categoria)}`
+                : 'api/listar.php';
+
+            fetch(url)
+                .then(function(respuesta) {
+                    // Si la respuesta no es OK, lanzamos un error
+                    if (!respuesta.ok) {
+                        throw new Error('Error HTTP: ' + respuesta.status);
+                    }
+                    return respuesta.json();
+                })
+                .then(function(servicios) {
+                    // Ocultamos el spinner
+                    document.getElementById('estado-carga').style.display = 'none';
+
+                    // Renderizamos las tarjetas
+                    renderizarProductos(servicios);
+
+                    // Generamos los botones de filtro (solo la primera vez)
+                    if (categoria === '') {
+                        generarFiltros(servicios);
+                    }
+                })
+                .catch(function(error) {
+                    // Mostramos mensaje de error amigable
+                    document.getElementById('estado-carga').style.display = 'none';
+                    document.getElementById('estado-error').style.display = 'block';
+                    console.error('Error al cargar productos:', error);
+                });
+        }
+
+        // ─── Renderizar tarjetas de productos ───────────────────────
+        function renderizarProductos(servicios) {
+            const contenedor = document.getElementById('contenedor-productos');
+
+            // Si no hay productos, mostramos mensaje
+            if (servicios.length === 0) {
+                contenedor.innerHTML = '<p class="text-muted text-center py-5">No hay servicios en esta categoría.</p>';
+                return;
+            }
+
+            // Construimos el HTML de todas las tarjetas
+            let html = '';
+
+            servicios.forEach(function(servicio) {
+                // Si no tiene imagen, usamos una imagen por defecto
+                const imagen = servicio.imagen ? servicio.imagen : 'img/portada.jpg';
+                const precio = servicio.precio ? '$' + Number(servicio.precio).toLocaleString() : 'Consultar';
+
+                html += `
+                    <div class="col-md-6 mb-4">
+                        <div class="card card-producto" onclick="abrirModal(${servicio.id})">
+                            <img src="${imagen}" class="card-img-top img-producto" alt="${servicio.nombre}" onerror="this.src='img/portada.jpg'">
+                            <div class="card-body text-center">
+                                <span class="badge-categoria mb-2 d-inline-block">${servicio.categoria || 'servicio'}</span>
+                                <h5 class="card-title mt-1">${servicio.nombre}</h5>
+                                <p class="text-gold fw-bold">${precio}</p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+
+            contenedor.innerHTML = html;
+
+            // Guardamos los servicios para usarlos en el modal
+            window.serviciosCache = servicios;
+        }
+
+        // ─── Abrir modal con datos del servicio ─────────────────────
+        function abrirModal(id) {
+            // Buscamos el servicio en el caché
+            const servicio = window.serviciosCache.find(s => s.id == id);
+            if (!servicio) return;
+
+            // Guardamos cuál está activo
+            servicioActual = servicio;
+
+            // Llenamos el modal con los datos reales
+            document.getElementById('modal-nombre').textContent      = servicio.nombre;
+            document.getElementById('modal-descripcion').textContent = servicio.descripcion || '';
+            document.getElementById('modal-categoria').textContent   = servicio.categoria || '';
+            document.getElementById('modal-precio').textContent      = servicio.precio ? '$' + Number(servicio.precio).toLocaleString() : 'Consultar';
+            document.getElementById('modal-imagen').src              = servicio.imagen || 'img/portada.jpg';
+            document.getElementById('modal-imagen').alt              = servicio.nombre;
+
+            // Conectamos el botón Agregar con este servicio
+            document.getElementById('btn-agregar-modal').onclick = function() {
+                agregarProducto(servicio.nombre, servicio.precio);
+            };
+
+            // Abrimos el modal de Bootstrap
+            const modal = new bootstrap.Modal(document.getElementById('modalProducto'));
+            modal.show();
+        }
+
+        // ─── Generar botones de filtro por categoría ─────────────────
+        function generarFiltros(servicios) {
+            // Obtenemos categorías únicas
+            const categorias = [...new Set(servicios.map(s => s.categoria).filter(Boolean))];
+            const contenedor = document.getElementById('filtros-categorias');
+
+            categorias.forEach(function(cat) {
+                const btn = document.createElement('button');
+                btn.className = 'btn btn-sm btn-outline-warning me-2 mb-2 filtro-btn';
+                btn.dataset.categoria = cat;
+                btn.textContent = cat.charAt(0).toUpperCase() + cat.slice(1);
+                contenedor.appendChild(btn);
+            });
+
+            // Evento de clic en filtros
+            contenedor.addEventListener('click', function(e) {
+                if (!e.target.classList.contains('filtro-btn')) return;
+
+                // Marcamos el botón activo
+                document.querySelectorAll('.filtro-btn').forEach(b => b.classList.remove('activo'));
+                e.target.classList.add('activo');
+
+                // Recargamos productos con el filtro seleccionado
+                const categoria = e.target.dataset.categoria;
+                document.getElementById('contenedor-productos').innerHTML = '';
+                document.getElementById('estado-carga').style.display = 'block';
+                cargarProductos(categoria);
+            });
+        }
+
+        // ─── Iniciar al cargar la página ────────────────────────────
+        window.addEventListener('DOMContentLoaded', function() {
+            cargarProductos();
+        });
+    </script>
+
+    <style>
+        /* Estilo del botón de filtro activo */
+        .filtro-btn.activo {
+            background-color: #d4af37;
+            color: #000;
+            font-weight: bold;
+        }
+    </style>
+
+</body>
 </html>
