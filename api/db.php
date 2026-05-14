@@ -14,7 +14,8 @@ try {
             nombre      TEXT NOT NULL,
             descripcion TEXT,
             categoria   TEXT,
-            precio      REAL
+            precio      REAL,
+            imagen      TEXT
         )
     ");
  
@@ -23,14 +24,16 @@ try {
     if ($total == 0) {
  
         $db->exec("
-            INSERT INTO servicios (nombre, descripcion, categoria, precio) VALUES
-            ('Cabina de fotos',   'Accesorios divertidos e impresión instantánea.', 'fotografia', 2500),
-            ('Plataforma 360',    'Video en 360 grados que captura cada momento.',  'video360',   3500),
-            ('Espejo mágico',     'Pantalla táctil con impresión al instante.',     'fotografia', 3000),
-            ('Totem fotográfico', 'Impresiones personalizadas de alta calidad.',    'fotografia', 2800),
-            ('Carrito de shots',  'Bebidas y colores en la pista de baile.',        'bar',        1800),
-            ('Snackin Emotions',  'Botanas y snacks personalizados a tu gusto.',    'bar',        1500),
-            ('Alfombra roja',     'Entrada elegante con fondo personalizado.',      'decoracion', 2000)
+            INSERT INTO servicios (nombre, descripcion, categoria, precio, imagen) VALUES
+            ('Carrito de Shots',   'Carrito iluminado de lujo, shots de colores ilimitados y animador con la máscara original de La Máscara.', 'bar',        2500, 'img/shotsServicio.jpg'),
+            ('Hollywood Spotlight','Experiencia de alfombra roja con unifilares dorados y luces profesionales.', 'decoracion', 4800, 'img/alfombraNosotros.jpg'),
+            ('Cabina de fotos',    'Cabina cerrada o abierta con impresión térmica instantánea y accesorios divertidos.',                      'fotografia', 3500, 'img/cabinaCatalogo.jpg'),
+            ('Foto 360',           'Videos en slow motion de alta definición con software de última generación y descarga vía QR.',             'video360',   1800, 'img/foto360Catalogo.jpg'),
+            ('Audio & DJ',         'Sistema de sonido profesional, DJ mezclando en vivo todos los géneros y cabina iluminada.',                'audio',      5500, 'img/audioCatalogo.jpg'),
+            ('Letras Gigantes',    'Renta de iniciales o XV iluminadas con focos vintage tipo feria. Altura de 1.20m.',                        'decoracion', 1200, 'img/letrasCatalogo.jpg'),
+            ('Pista de Baile',     'Pista LED pixelada con efectos de colores infinitos que reaccionan al ritmo de la música.',                'decoracion', 2550, 'img/pistaCatalogo.jpg'),
+            ('Glow Production',    'Paquete completo de iluminación robótica, pantallas de visuales y efectos láser.',                         'iluminacion',2200, 'img/iluminacioCtalogo.jpg'),
+            ('Accesorios & Props', 'Maletas con pelucas, lentes gigantes, boas, máscaras originales y letreros interactivos.',                 'fotografia', 3500, 'img/accesorioCata.jpg')
         ");
  
     } 
